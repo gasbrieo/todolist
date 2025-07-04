@@ -1,7 +1,6 @@
-import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { render, screen } from "~/testing/testUtils";
 
-import { Button } from "./Button";
+import { Button } from ".";
 
 describe("Button", () => {
   it("renders as a <button> by default", () => {

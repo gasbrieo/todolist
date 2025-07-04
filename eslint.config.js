@@ -87,7 +87,7 @@ export default tseslint.config(
           rules: [
             {
               from: "components",
-              allow: ["components", "utils"],
+              allow: ["components", "testing", "utils"],
             },
             {
               from: "features",
