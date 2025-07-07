@@ -103,7 +103,7 @@ export default tseslint.config(
             },
             {
               from: "routes",
-              allow: ["features", "routes", "utils"],
+              allow: ["features", "lib", "routes", "utils"],
             },
             {
               from: "testing",

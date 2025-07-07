@@ -27,10 +27,10 @@ export const LoginPage = () => {
             <CardContent>
               <div className="grid gap-6">
                 <div className="flex justify-center gap-2">
-                  <Button variant="outline" size="icon" aria-label="Login with Google">
+                  <Button variant="outline" size="icon" aria-label="Sign in with Google">
                     <GoogleIcon className="h-4 w-4" />
                   </Button>
-                  <Button variant="outline" size="icon" aria-label="Login with Google">
+                  <Button variant="outline" size="icon" aria-label="Sign in with GitHub">
                     <GitHubIcon className="h-4 w-4" />
                   </Button>
                 </div>
@@ -40,7 +40,7 @@ export const LoginPage = () => {
                 <LoginForm />
                 <div className="text-center text-sm">
                   Don&apos;t have an account?{" "}
-                  <Link className="underline underline-offset-4" to="/auth/signup">
+                  <Link className="hover:underline underline-offset-4" to="/auth/signup">
                     Sign up
                   </Link>
                 </div>

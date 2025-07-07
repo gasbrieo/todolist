@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AlertCircleIcon, CheckCircle2Icon } from "lucide-react";
 
@@ -6,20 +7,18 @@ import { Alert, AlertDescription } from "~/components/ui/Alert";
 import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
-import { register } from "../../api/serverFns";
-import { RegisterSchema } from "../../schemas/register";
+import { resetPassword } from "../../api/serverFns";
+import { ResetPasswordSchema } from "../../schemas/resetPassword";
 
-export const RegisterForm = () => {
+export const ResetPasswordForm = () => {
   const mutation = useMutation({
-    mutationFn: useServerFn(register),
+    mutationFn: useServerFn(resetPassword),
   });
 
   const form = useAppForm({
-    validators: { onChange: RegisterSchema },
+    validators: { onChange: ResetPasswordSchema },
     defaultValues: {
-      username: "",
       email: "",
-      password: "",
     },
     onSubmit: async ({ value }) => {
       await mutation.mutateAsync({ data: value });
@@ -35,25 +34,6 @@ export const RegisterForm = () => {
       }}
     >
       <div className="grid gap-6">
-        <form.AppField name="username">
-          {(field) => (
-            <field.FormItem>
-              <field.FormLabel>Username</field.FormLabel>
-              <field.FormControl>
-                <Input
-                  type="text"
-                  id={field.name}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) => field.handleChange(e.target.value)}
-                />
-              </field.FormControl>
-              <field.FormMessage />
-            </field.FormItem>
-          )}
-        </form.AppField>
-
         <form.AppField name="email">
           {(field) => (
             <field.FormItem>
@@ -61,25 +41,6 @@ export const RegisterForm = () => {
               <field.FormControl>
                 <Input
                   type="email"
-                  id={field.name}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) => field.handleChange(e.target.value)}
-                />
-              </field.FormControl>
-              <field.FormMessage />
-            </field.FormItem>
-          )}
-        </form.AppField>
-
-        <form.AppField name="password">
-          {(field) => (
-            <field.FormItem>
-              <field.FormLabel>Password</field.FormLabel>
-              <field.FormControl>
-                <Input
-                  type="password"
                   id={field.name}
                   name={field.name}
                   value={field.state.value}
@@ -102,13 +63,20 @@ export const RegisterForm = () => {
         {mutation.isSuccess && (
           <Alert variant="default">
             <CheckCircle2Icon />
-            <AlertDescription>Check your email to confirm your account.</AlertDescription>
+            <AlertDescription>Check your email for reset instructions.</AlertDescription>
           </Alert>
         )}
 
         <form.AppForm>
           <form.SubmitButton>Continue</form.SubmitButton>
         </form.AppForm>
+
+        <div className="text-sm">
+          Remembered your password?{" "}
+          <Link className="hover:underline underline-offset-4" to="/auth/signin">
+            Sign in
+          </Link>
+        </div>
       </div>
     </form>
   );

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { AlertCircleIcon } from "lucide-react";
 
@@ -7,15 +7,15 @@ import { Alert, AlertDescription } from "~/components/ui/Alert";
 import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
-import { login } from "../../api/serverFns";
-import { LoginSchema } from "../../schemas/login";
+import { updatePassword } from "../../api/serverFns";
+import { UpdatePasswordSchema } from "../../schemas/updatePassword";
 
-export const LoginForm = () => {
+export const UpdatePasswordForm = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: useServerFn(login),
+    mutationFn: useServerFn(updatePassword),
     onSuccess: () => {
       queryClient.resetQueries();
       navigate({ to: "/" });
@@ -23,9 +23,8 @@ export const LoginForm = () => {
   });
 
   const form = useAppForm({
-    validators: { onChange: LoginSchema },
+    validators: { onChange: UpdatePasswordSchema },
     defaultValues: {
-      email: "",
       password: "",
     },
     onSubmit: async ({ value }) => {
@@ -42,37 +41,10 @@ export const LoginForm = () => {
       }}
     >
       <div className="grid gap-6">
-        <form.AppField name="email">
-          {(field) => (
-            <field.FormItem>
-              <field.FormLabel>Email</field.FormLabel>
-              <field.FormControl>
-                <Input
-                  type="email"
-                  id={field.name}
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) => field.handleChange(e.target.value)}
-                />
-              </field.FormControl>
-              <field.FormMessage />
-            </field.FormItem>
-          )}
-        </form.AppField>
-
         <form.AppField name="password">
           {(field) => (
             <field.FormItem>
-              <div className="flex items-center">
-                <field.FormLabel>Password</field.FormLabel>
-                <Link
-                  to="/auth/reset-password"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                >
-                  Forgot your password?
-                </Link>
-              </div>
+              <field.FormLabel>Password</field.FormLabel>
               <field.FormControl>
                 <Input
                   type="password"
