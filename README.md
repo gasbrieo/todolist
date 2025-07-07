@@ -5,7 +5,7 @@ This project is focused on authentication, protected task data, and a clean arch
 
 ## ✨ Features
 
-- ✅ Sign up / login (via Supabase Auth)
+- ✅ Sign up / Sign in (via Supabase Auth)
 - ✅ View your personal tasks (with Supabase RLS)
 - ✅ Create, edit, and delete tasks
 - ✅ Server-side data loading with TanStack Start

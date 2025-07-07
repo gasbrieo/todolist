@@ -4,6 +4,7 @@ import { Outlet, createRootRouteWithContext, HeadContent, Scripts } from "@tanst
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 
+import { getSessionState } from "~/features/auth";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
 
@@ -40,6 +41,10 @@ interface RouteContext {
 }
 
 export const Route = createRootRouteWithContext<RouteContext>()({
+  beforeLoad: async () => {
+    const sessionState = await getSessionState();
+    return { sessionState };
+  },
   head: () => ({
     meta: [
       {
