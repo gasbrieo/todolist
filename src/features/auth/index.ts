@@ -1,4 +1,4 @@
-export { getSessionState, logout, verifyOtp } from "./api/serverFns";
+export { getSessionState, logout, verifyOtp, loginWithOAuth, exchangeCodeForSession } from "./api/serverFns";
 export { ConfirmPage } from "./pages/ConfirmPage";
 export { LoginPage } from "./pages/LoginPage";
 export { RegisterPage } from "./pages/RegisterPage";

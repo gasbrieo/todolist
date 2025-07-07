@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { GalleryVerticalEndIcon } from "lucide-react";
 
-import { GitHubIcon, GoogleIcon } from "~/components/icons";
-import { Button } from "~/components/ui/Button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/Card";
 
 import { LegalNotice } from "../../components/LegalNotice";
 import { RegisterForm } from "../../components/RegisterForm";
+import { SocialButtons } from "../../components/SocialButtons";
 
 export const RegisterPage = () => {
   return (
@@ -26,14 +25,7 @@ export const RegisterPage = () => {
             </CardHeader>
             <CardContent>
               <div className="grid gap-6">
-                <div className="flex justify-center gap-2">
-                  <Button variant="outline" size="icon" aria-label="Sign up with Google">
-                    <GoogleIcon className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="icon" aria-label="Sign up with GitHub">
-                    <GitHubIcon className="h-4 w-4" />
-                  </Button>
-                </div>
+                <SocialButtons />
                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                   <span className="bg-card text-muted-foreground relative z-10 px-2">Or continue with</span>
                 </div>

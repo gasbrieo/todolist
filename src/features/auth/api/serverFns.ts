@@ -2,7 +2,9 @@ import { createServerFn } from "@tanstack/react-start";
 
 import { getSupabaseServerClient } from "~/lib/supabase";
 
+import { ExchangeCodeForSessionSchema } from "../schemas/exchangeCodeForSession";
 import { LoginSchema } from "../schemas/login";
+import { LoginOAuthSchema } from "../schemas/loginOAuth";
 import { RegisterSchema } from "../schemas/register";
 import { ResetPasswordSchema } from "../schemas/resetPassword";
 import { UpdatePasswordSchema } from "../schemas/updatePassword";
@@ -73,6 +75,33 @@ export const verifyOtp = createServerFn()
       type: data.type,
       token_hash: data.tokenHash,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+  });
+
+export const loginWithOAuth = createServerFn()
+  .validator(LoginOAuthSchema)
+  .handler(async ({ data }) => {
+    const { data: loginOAuthData, error } = await getSupabaseServerClient().auth.signInWithOAuth({
+      provider: data.provider,
+      options: {
+        redirectTo: "http://localhost:3000/auth/callback",
+      },
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return loginOAuthData;
+  });
+
+export const exchangeCodeForSession = createServerFn()
+  .validator(ExchangeCodeForSessionSchema)
+  .handler(async ({ data }) => {
+    const { error } = await getSupabaseServerClient().auth.exchangeCodeForSession(data.code);
 
     if (error) {
       throw new Error(error.message);
