@@ -9,7 +9,7 @@ export const HomePage = () => {
       <p>Hello!</p>
       <p>{sessionState.isAuthenticated}</p>
       <p>{sessionState.user?.email}</p>
-      <button onClick={async () => await logout()}>Sign out</button>
+      <button onClick={async () => await logout()}>Logout</button>
     </div>
   );
 };

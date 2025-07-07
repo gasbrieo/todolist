@@ -6,7 +6,7 @@ export const Route = createFileRoute("/_private")({
   beforeLoad: ({ context }) => {
     if (!context.sessionState.isAuthenticated) {
       throw redirect({
-        to: "/auth/signin",
+        to: "/auth/login",
       });
     }
 

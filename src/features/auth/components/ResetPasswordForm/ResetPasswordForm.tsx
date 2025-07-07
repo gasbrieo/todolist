@@ -73,8 +73,8 @@ export const ResetPasswordForm = () => {
 
         <div className="text-sm">
           Remembered your password?{" "}
-          <Link className="hover:underline underline-offset-4" to="/auth/signin">
-            Sign in
+          <Link className="hover:underline underline-offset-4" to="/auth/login">
+            Login
           </Link>
         </div>
       </div>

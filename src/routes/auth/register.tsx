@@ -1,9 +1,9 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
 import type { UnauthenticatedState } from "~/features/auth";
-import { LoginPage } from "~/features/auth";
+import { RegisterPage } from "~/features/auth";
 
-export const Route = createFileRoute("/auth/signin")({
+export const Route = createFileRoute("/auth/register")({
   beforeLoad: ({ context }) => {
     if (context.sessionState.isAuthenticated) {
       throw redirect({ to: "/" });
@@ -11,5 +11,5 @@ export const Route = createFileRoute("/auth/signin")({
 
     return { authState: context.sessionState as UnauthenticatedState };
   },
-  component: LoginPage,
+  component: RegisterPage,
 });

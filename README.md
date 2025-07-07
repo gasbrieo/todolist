@@ -5,7 +5,7 @@ This project is focused on authentication, protected task data, and a clean arch
 
 ## ✨ Features
 
-- ✅ Sign up / Sign in (via Supabase Auth)
+- ✅ Login (via Supabase Auth)
 - ✅ View your personal tasks (with Supabase RLS)
 - ✅ Create, edit, and delete tasks
 - ✅ Server-side data loading with TanStack Start
@@ -48,6 +48,15 @@ npm run dev
 
 - This project is not a production app — it's meant as a demonstration of how to combine TanStack Start with Supabase for fullstack development.
 - Authentication and data access are implemented with real constraints using RLS policies.
+
+## TODO
+
+- [x] Auth with email/password
+- [x] Auth with Google/GitHub
+- [x] Error and not found components pro Tanstack Router
+- [ ] Write tests for features/auth components
+- [ ] Private layout with Sidebar + Topbar
+- [ ] i18n
 
 ## 🪪 License
 
