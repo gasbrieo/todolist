@@ -119,7 +119,11 @@ export const getSessionState = createServerFn().handler(async () => {
     isAuthenticated: true,
     user: {
       email: data.user.email,
-      meta: { username: data.user.user_metadata.username },
+      meta: {
+        avatar: data.user.user_metadata.avatar_url,
+        name: data.user.user_metadata.name,
+        username: data.user.user_metadata.username,
+      },
     },
   };
 });

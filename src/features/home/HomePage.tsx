@@ -1,15 +1,11 @@
-import { logout } from "~/features/auth";
-import { Route } from "~/routes/_private/index";
-
 export const HomePage = () => {
-  const { sessionState } = Route.useRouteContext();
-
   return (
-    <div>
-      <p>Hello!</p>
-      <p>{sessionState.isAuthenticated}</p>
-      <p>{sessionState.user?.email}</p>
-      <button onClick={async () => await logout()}>Logout</button>
+    <div className="flex flex-1 flex-col space-y-2">
+      <div className="space-y-6">
+        <div className="flex items-center justify-between space-y-2">
+          <h2 className="text-2xl font-bold tracking-tight">Hi, Welcome back 👋</h2>
+        </div>
+      </div>
     </div>
   );
 };

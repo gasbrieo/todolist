@@ -57,6 +57,8 @@ npm run dev
 - [ ] Write tests for features/auth components
 - [ ] Private layout with Sidebar + Topbar
 - [ ] i18n
+- [ ] Profile settings page
+- [ ] Todolist crud page
 
 ## 🪪 License
 

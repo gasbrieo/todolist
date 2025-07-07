@@ -1,6 +1,8 @@
 export type SessionUser = {
-  email?: string;
+  email: string;
   meta: {
+    avatar: string;
+    name: string;
     username: string;
   };
 };

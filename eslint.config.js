@@ -87,7 +87,7 @@ export default tseslint.config(
           rules: [
             {
               from: "components",
-              allow: ["components", "hooks", "utils"],
+              allow: ["components", "hooks", "routes", "utils"],
             },
             {
               from: "features",
@@ -103,7 +103,7 @@ export default tseslint.config(
             },
             {
               from: "routes",
-              allow: ["features", "lib", "routes", "utils"],
+              allow: ["components", "features", "lib", "routes", "utils"],
             },
             {
               from: "testing",
