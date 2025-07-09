@@ -8,6 +8,17 @@ import { getSessionState } from "~/features/auth";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
 
+const Devtools = () => {
+  if (typeof window === "undefined" || !import.meta.env.DEV) return null;
+
+  return (
+    <>
+      <TanStackRouterDevtools position="bottom-right" />
+      <ReactQueryDevtools buttonPosition="top-right" />
+    </>
+  );
+};
+
 interface RootDocumentProps {
   children: ReactNode;
 }
@@ -20,8 +31,7 @@ const RootDocument = ({ children }: RootDocumentProps) => {
       </head>
       <body>
         {children}
-        <TanStackRouterDevtools position="bottom-right" />
-        <ReactQueryDevtools buttonPosition="top-right" />
+        <Devtools />
         <Scripts />
       </body>
     </html>
