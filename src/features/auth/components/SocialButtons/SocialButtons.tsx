@@ -1,7 +1,7 @@
 import { Button } from "~/components/ui/Button";
 
 import { loginWithOAuth } from "../../api/serverFns";
-import type { LoginOAuthProvider } from "../../schemas/loginOAuth";
+import type { LoginOAuthProvider } from "../../schemas/loginSchemas";
 
 export const SocialButtons = () => {
   const handleOAuthLogin = async (provider: LoginOAuthProvider) => {

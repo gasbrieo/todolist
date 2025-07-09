@@ -10,7 +10,7 @@ import { RegisterSchema } from "../schemas/registerSchemas";
 export const register = createServerFn()
   .validator(RegisterSchema)
   .handler(async ({ data }) => {
-    const { data: userData, error } = await getSupabaseServerClient().auth.signUp({
+    const { error } = await getSupabaseServerClient().auth.signUp({
       email: data.email,
       password: data.password,
     });
@@ -18,12 +18,6 @@ export const register = createServerFn()
     if (error) {
       throw new Error(error.message);
     }
-
-    if (userData.user) {
-      return userData.user.id;
-    }
-
-    throw new Error("Something went wrong");
   });
 
 export const login = createServerFn()
@@ -92,7 +86,7 @@ export const loginWithOAuth = createServerFn()
       throw new Error(error.message);
     }
 
-    return loginOAuthData;
+    return { url: loginOAuthData.url };
   });
 
 export const exchangeCodeForSession = createServerFn()

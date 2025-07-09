@@ -20,8 +20,8 @@ export const ResetPasswordForm = () => {
     defaultValues: {
       email: "",
     },
-    onSubmit: async ({ value }) => {
-      await mutation.mutateAsync({ data: value });
+    onSubmit: ({ value }) => {
+      mutation.mutate({ data: value });
     },
   });
 

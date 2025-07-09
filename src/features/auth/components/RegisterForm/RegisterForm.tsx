@@ -21,8 +21,8 @@ export const RegisterForm = () => {
       email: "",
       password: "",
     },
-    onSubmit: async ({ value }) => {
-      await mutation.mutateAsync({ data: value });
+    onSubmit: ({ value }) => {
+      mutation.mutate({ data: value });
     },
   });
 

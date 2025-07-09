@@ -18,7 +18,7 @@ export const UpdatePasswordForm = () => {
     mutationFn: useServerFn(updatePassword),
     onSuccess: () => {
       queryClient.resetQueries();
-      navigate({ to: "/" });
+      navigate({ to: "/auth/logout" });
     },
   });
 
@@ -27,8 +27,8 @@ export const UpdatePasswordForm = () => {
     defaultValues: {
       password: "",
     },
-    onSubmit: async ({ value }) => {
-      await mutation.mutateAsync({ data: value });
+    onSubmit: ({ value }) => {
+      mutation.mutate({ data: value });
     },
   });
 
