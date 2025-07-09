@@ -4,8 +4,20 @@ import { Outlet, createRootRouteWithContext, HeadContent, Scripts } from "@tanst
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import type { ReactNode } from "react";
 
+import { getSessionState } from "~/features/auth";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
+
+const Devtools = () => {
+  if (typeof window === "undefined" || !import.meta.env.DEV) return null;
+
+  return (
+    <>
+      <TanStackRouterDevtools position="bottom-right" />
+      <ReactQueryDevtools buttonPosition="top-right" />
+    </>
+  );
+};
 
 interface RootDocumentProps {
   children: ReactNode;
@@ -19,8 +31,7 @@ const RootDocument = ({ children }: RootDocumentProps) => {
       </head>
       <body>
         {children}
-        <TanStackRouterDevtools position="bottom-right" />
-        <ReactQueryDevtools buttonPosition="top-right" />
+        <Devtools />
         <Scripts />
       </body>
     </html>
@@ -40,6 +51,10 @@ interface RouteContext {
 }
 
 export const Route = createRootRouteWithContext<RouteContext>()({
+  beforeLoad: async () => {
+    const sessionState = await getSessionState();
+    return { sessionState };
+  },
   head: () => ({
     meta: [
       {

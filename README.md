@@ -5,7 +5,7 @@ This project is focused on authentication, protected task data, and a clean arch
 
 ## ✨ Features
 
-- ✅ Sign up / login (via Supabase Auth)
+- ✅ Login (via Supabase Auth)
 - ✅ View your personal tasks (with Supabase RLS)
 - ✅ Create, edit, and delete tasks
 - ✅ Server-side data loading with TanStack Start
@@ -26,10 +26,15 @@ This project is focused on authentication, protected task data, and a clean arch
 
 ```bash
 src/
-├── routes/        # Pages and routes (TanStack)
-├── server/        # Server loaders/actions
-├── lib/           # Supabase client, utilities
-├── components/    # Reusable UI (shadcn-based)
+├── components/   # Reusable UI components (shadcn-based)
+├── features/     # Feature-based folders (forms, auth, etc.)
+├── hooks/        # Shared React hooks
+├── lib/          # Supabase client, helpers, and general utilities
+├── routes/       # TanStack route entries and layouts
+├── styles/       # Global styles (e.g., tailwind, css vars)
+├── testing/      # Testing utilities (renderWithProviders, mocks, etc.)
+├── types/        # Shared TypeScript types
+├── utils/        # General utilities not tied to features
 ```
 
 ## 🚀 Getting Started
@@ -48,6 +53,16 @@ npm run dev
 
 - This project is not a production app — it's meant as a demonstration of how to combine TanStack Start with Supabase for fullstack development.
 - Authentication and data access are implemented with real constraints using RLS policies.
+
+## TODO
+
+- [x] Auth with email/password
+- [x] Auth with Google/GitHub
+- [x] Error and not found components pro Tanstack Router
+- [x] Write tests for features/auth components
+- [x] Private layout with Sidebar + Topbar
+- [ ] Profile settings page
+- [ ] Todolist crud page
 
 ## 🪪 License
 
