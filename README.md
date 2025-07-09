@@ -26,10 +26,15 @@ This project is focused on authentication, protected task data, and a clean arch
 
 ```bash
 src/
-├── routes/        # Pages and routes (TanStack)
-├── server/        # Server loaders/actions
-├── lib/           # Supabase client, utilities
-├── components/    # Reusable UI (shadcn-based)
+├── components/   # Reusable UI components (shadcn-based)
+├── features/     # Feature-based folders (forms, auth, etc.)
+├── hooks/        # Shared React hooks
+├── lib/          # Supabase client, helpers, and general utilities
+├── routes/       # TanStack route entries and layouts
+├── styles/       # Global styles (e.g., tailwind, css vars)
+├── testing/      # Testing utilities (renderWithProviders, mocks, etc.)
+├── types/        # Shared TypeScript types
+├── utils/        # General utilities not tied to features
 ```
 
 ## 🚀 Getting Started
