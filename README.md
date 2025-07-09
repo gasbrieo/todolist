@@ -54,9 +54,8 @@ npm run dev
 - [x] Auth with email/password
 - [x] Auth with Google/GitHub
 - [x] Error and not found components pro Tanstack Router
-- [ ] Write tests for features/auth components
-- [ ] Private layout with Sidebar + Topbar
-- [ ] i18n
+- [x] Write tests for features/auth components
+- [x] Private layout with Sidebar + Topbar
 - [ ] Profile settings page
 - [ ] Todolist crud page
 
