@@ -2,13 +2,10 @@ import { createServerFn } from "@tanstack/react-start";
 
 import { getSupabaseServerClient } from "~/lib/supabase";
 
-import { ExchangeCodeForSessionSchema } from "../schemas/exchangeCodeForSession";
-import { LoginSchema } from "../schemas/login";
-import { LoginOAuthSchema } from "../schemas/loginOAuth";
-import { RegisterSchema } from "../schemas/register";
-import { ResetPasswordSchema } from "../schemas/resetPassword";
-import { UpdatePasswordSchema } from "../schemas/updatePassword";
-import { VerifyOtpSchema } from "../schemas/verifyOtp";
+import { LoginOAuthSchema, LoginSchema } from "../schemas/loginSchemas";
+import { ExchangeCodeForSessionSchema, VerifyOtpSchema } from "../schemas/otpSchemas";
+import { ResetPasswordSchema, UpdatePasswordSchema } from "../schemas/passwordSchemas";
+import { RegisterSchema } from "../schemas/registerSchemas";
 
 export const register = createServerFn()
   .validator(RegisterSchema)

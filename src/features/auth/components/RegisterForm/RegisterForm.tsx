@@ -7,7 +7,7 @@ import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
 import { register } from "../../api/serverFns";
-import { RegisterSchema } from "../../schemas/register";
+import { RegisterSchema } from "../../schemas/registerSchemas";
 
 export const RegisterForm = () => {
   const mutation = useMutation({
@@ -42,7 +42,6 @@ export const RegisterForm = () => {
               <field.FormControl>
                 <Input
                   type="text"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}
@@ -61,7 +60,6 @@ export const RegisterForm = () => {
               <field.FormControl>
                 <Input
                   type="email"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}
@@ -80,7 +78,6 @@ export const RegisterForm = () => {
               <field.FormControl>
                 <Input
                   type="password"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}

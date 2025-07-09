@@ -87,11 +87,11 @@ export default tseslint.config(
           rules: [
             {
               from: "components",
-              allow: ["components", "hooks", "routes", "utils"],
+              allow: ["components", "hooks", "lib", "routes", "testing", "types", "utils"],
             },
             {
               from: "features",
-              allow: ["components", "features", "lib", "routes"],
+              allow: ["components", "features", "hooks", "lib", "routes", "testing", "types", "utils"],
             },
             {
               from: "hooks",
@@ -103,7 +103,7 @@ export default tseslint.config(
             },
             {
               from: "routes",
-              allow: ["components", "features", "lib", "routes", "utils"],
+              allow: ["components", "features", "hooks", "lib", "routes", "types", "utils"],
             },
             {
               from: "testing",
@@ -142,6 +142,13 @@ export default tseslint.config(
     files: ["e2e/**/*"],
     rules: {
       "testing-library/prefer-screen-queries": "off",
+    },
+  },
+  {
+    files: ["mocks/**/*"],
+    rules: {
+      "react-refresh/only-export-components": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 );

@@ -8,7 +8,7 @@ import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
 import { login } from "../../api/serverFns";
-import { LoginSchema } from "../../schemas/login";
+import { LoginSchema } from "../../schemas/loginSchemas";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export const LoginForm = () => {
       password: "",
     },
     onSubmit: async ({ value }) => {
-      await mutation.mutateAsync({ data: value });
+      mutation.mutate({ data: value });
     },
   });
 
@@ -49,7 +49,6 @@ export const LoginForm = () => {
               <field.FormControl>
                 <Input
                   type="email"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}
@@ -76,7 +75,6 @@ export const LoginForm = () => {
               <field.FormControl>
                 <Input
                   type="password"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}

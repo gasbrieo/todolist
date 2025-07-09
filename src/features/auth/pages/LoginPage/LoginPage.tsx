@@ -12,7 +12,7 @@ export const LoginPage = () => {
     <AuthCard>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Login to Acme Co</CardTitle>
+          <CardTitle className="text-xl">Login to Todolist</CardTitle>
           <CardDescription>Welcome back! Please login to continue</CardDescription>
         </CardHeader>
         <CardContent>

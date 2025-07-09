@@ -8,7 +8,7 @@ import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
 import { updatePassword } from "../../api/serverFns";
-import { UpdatePasswordSchema } from "../../schemas/updatePassword";
+import { UpdatePasswordSchema } from "../../schemas/passwordSchemas";
 
 export const UpdatePasswordForm = () => {
   const navigate = useNavigate();
@@ -48,7 +48,6 @@ export const UpdatePasswordForm = () => {
               <field.FormControl>
                 <Input
                   type="password"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}

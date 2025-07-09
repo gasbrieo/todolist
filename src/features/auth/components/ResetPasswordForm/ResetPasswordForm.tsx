@@ -8,7 +8,7 @@ import { useAppForm } from "~/components/ui/Form";
 import { Input } from "~/components/ui/Input";
 
 import { resetPassword } from "../../api/serverFns";
-import { ResetPasswordSchema } from "../../schemas/resetPassword";
+import { ResetPasswordSchema } from "../../schemas/passwordSchemas";
 
 export const ResetPasswordForm = () => {
   const mutation = useMutation({
@@ -41,7 +41,6 @@ export const ResetPasswordForm = () => {
               <field.FormControl>
                 <Input
                   type="email"
-                  id={field.name}
                   name={field.name}
                   value={field.state.value}
                   onBlur={field.handleBlur}
