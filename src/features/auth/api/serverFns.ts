@@ -78,7 +78,7 @@ export const loginWithOAuth = createServerFn()
     const { data: loginOAuthData, error } = await getSupabaseServerClient().auth.signInWithOAuth({
       provider: data.provider,
       options: {
-        redirectTo: "http://localhost:3000/auth/callback",
+        redirectTo: process.env.SUPABASE_REDIRECT_URL,
       },
     });
 
