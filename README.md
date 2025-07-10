@@ -1,5 +1,10 @@
 # 📝 todolist
 
+![GitHub last commit](https://img.shields.io/github/last-commit/gasbrieo/todolist)
+![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/gasbrieo_todolist?server=http%3A%2F%2Fsonarcloud.io)
+![Sonar Coverage](https://img.shields.io/sonar/coverage/gasbrieo_todolist?server=https%3A%2F%2Fsonarcloud.io)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6f3d5e83-3fc5-4af4-818c-d1b52dc78fb7/deploy-status)](https://app.netlify.com/projects/todolist-gaberabreu/deploys)
+
 A minimal task management demo app built with modern frontend and backend tooling.  
 This project is focused on authentication, protected task data, and a clean architecture for learning and portfolio purposes.
 
@@ -9,8 +14,8 @@ This project is focused on authentication, protected task data, and a clean arch
 - ✅ View your personal tasks (with Supabase RLS)
 - ✅ Create, edit, and delete tasks
 - ✅ Server-side data loading with TanStack Start
-- ✅ Notifications for actions (create/delete)
 - ✅ Clean UI with shadcn/ui and Tailwind CSS
+- ✅ Deploy with Netlify
 
 ## 🧱 Tech Stack
 
@@ -21,6 +26,7 @@ This project is focused on authentication, protected task data, and a clean arch
 | Styling   | Tailwind CSS + shadcn/ui                     |
 | Auth      | Supabase Auth                                |
 | Dev Tools | TypeScript, ESLint, Prettier                 |
+| Deploy    | Netlify                                      |
 
 ## 📁 Project Structure
 
