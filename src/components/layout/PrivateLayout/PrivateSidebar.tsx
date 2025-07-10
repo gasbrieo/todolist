@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronsUpDownIcon, LayoutDashboardIcon, LogOutIcon } from "lucide-react";
+import { ChevronsUpDownIcon, LayoutDashboardIcon, ListTodoIcon, LogOutIcon } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/Avatar";
 import {
@@ -65,6 +65,14 @@ export const PrivateSidebar = ({ user }: PrivateSidebarProps) => {
                 <Link to="/">
                   <LayoutDashboardIcon />
                   <span>Home</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild tooltip="Todos">
+                <Link to="/todos">
+                  <ListTodoIcon />
+                  <span>Todos</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

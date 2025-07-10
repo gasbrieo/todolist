@@ -54,16 +54,6 @@ npm run dev
 - This project is not a production app — it's meant as a demonstration of how to combine TanStack Start with Supabase for fullstack development.
 - Authentication and data access are implemented with real constraints using RLS policies.
 
-## TODO
-
-- [x] Auth with email/password
-- [x] Auth with Google/GitHub
-- [x] Error and not found components pro Tanstack Router
-- [x] Write tests for features/auth components
-- [x] Private layout with Sidebar + Topbar
-- [ ] Profile settings page
-- [ ] Todolist crud page
-
 ## 🪪 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

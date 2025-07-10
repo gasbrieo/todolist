@@ -6,7 +6,7 @@ import { DataTableViewOptions } from "../DataTableViewOptions";
 
 import type { DataTableToolbarProps } from "./DataTableToolbar.types";
 
-export const DataTableToolbar = <TData,>({ table }: DataTableToolbarProps<TData>) => {
+export const DataTableToolbar = <TData,>({ table, actions }: DataTableToolbarProps<TData>) => {
   const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
@@ -26,7 +26,10 @@ export const DataTableToolbar = <TData,>({ table }: DataTableToolbarProps<TData>
           </Button>
         )}
       </div>
-      <DataTableViewOptions table={table} />
+      <div className="flex items-center space-x-2">
+        <DataTableViewOptions table={table} />
+        {actions}
+      </div>
     </div>
   );
 };

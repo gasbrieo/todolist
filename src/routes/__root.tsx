@@ -9,8 +9,6 @@ import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
 
 const Devtools = () => {
-  if (typeof window === "undefined" || !import.meta.env.DEV) return null;
-
   return (
     <>
       <TanStackRouterDevtools position="bottom-right" />

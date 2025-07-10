@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 
-import { getSupabaseServerClient } from "~/lib/supabase";
+import { getSupabaseServerClient } from "~/lib/supabase/serverClient";
 
 import { LoginOAuthSchema, LoginSchema } from "../schemas/loginSchemas";
 import { ExchangeCodeForSessionSchema, VerifyOtpSchema } from "../schemas/otpSchemas";
