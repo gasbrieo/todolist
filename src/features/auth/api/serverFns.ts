@@ -78,7 +78,7 @@ export const loginWithOAuth = createServerFn()
     const { data: loginOAuthData, error } = await getSupabaseServerClient().auth.signInWithOAuth({
       provider: data.provider,
       options: {
-        redirectTo: process.env.SUPABASE_REDIRECT_URL,
+        redirectTo: import.meta.env.VITE_OAUTH_REDIRECT_URL,
       },
     });
 
