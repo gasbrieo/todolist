@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 
-import { getSupabaseServerClient } from "~/lib/supabase";
+import { getSupabaseServerClient } from "~/lib/supabase/serverClient";
 
 import { LoginOAuthSchema, LoginSchema } from "../schemas/loginSchemas";
 import { ExchangeCodeForSessionSchema, VerifyOtpSchema } from "../schemas/otpSchemas";
@@ -78,7 +78,7 @@ export const loginWithOAuth = createServerFn()
     const { data: loginOAuthData, error } = await getSupabaseServerClient().auth.signInWithOAuth({
       provider: data.provider,
       options: {
-        redirectTo: "http://localhost:3000/auth/callback",
+        redirectTo: process.env.SUPABASE_REDIRECT_URL,
       },
     });
 

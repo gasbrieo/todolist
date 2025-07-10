@@ -19,6 +19,7 @@ import { Route as AuthLogoutRouteImport } from './routes/auth/logout'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthConfirmRouteImport } from './routes/auth/confirm'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
+import { Route as PrivateTodosRouteImport } from './routes/_private/todos'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
@@ -69,9 +70,15 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/callback',
   getParentRoute: () => AuthRoute,
 } as any)
+const PrivateTodosRoute = PrivateTodosRouteImport.update({
+  id: '/todos',
+  path: '/todos',
+  getParentRoute: () => PrivateRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/auth': typeof AuthRouteWithChildren
+  '/todos': typeof PrivateTodosRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/auth/confirm': typeof AuthConfirmRoute
   '/auth/login': typeof AuthLoginRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/auth': typeof AuthRouteWithChildren
+  '/todos': typeof PrivateTodosRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/auth/confirm': typeof AuthConfirmRoute
   '/auth/login': typeof AuthLoginRoute
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_private': typeof PrivateRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
+  '/_private/todos': typeof PrivateTodosRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/auth/confirm': typeof AuthConfirmRoute
   '/auth/login': typeof AuthLoginRoute
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/auth'
+    | '/todos'
     | '/auth/callback'
     | '/auth/confirm'
     | '/auth/login'
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/auth'
+    | '/todos'
     | '/auth/callback'
     | '/auth/confirm'
     | '/auth/login'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_private'
     | '/auth'
+    | '/_private/todos'
     | '/auth/callback'
     | '/auth/confirm'
     | '/auth/login'
@@ -219,14 +231,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/_private/todos': {
+      id: '/_private/todos'
+      path: '/todos'
+      fullPath: '/todos'
+      preLoaderRoute: typeof PrivateTodosRouteImport
+      parentRoute: typeof PrivateRoute
+    }
   }
 }
 
 interface PrivateRouteChildren {
+  PrivateTodosRoute: typeof PrivateTodosRoute
   PrivateIndexRoute: typeof PrivateIndexRoute
 }
 
 const PrivateRouteChildren: PrivateRouteChildren = {
+  PrivateTodosRoute: PrivateTodosRoute,
   PrivateIndexRoute: PrivateIndexRoute,
 }
 

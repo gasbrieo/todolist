@@ -12,7 +12,7 @@ export const DataTableToolbarFilter = <TData,>({ column }: DataTableToolbarFilte
     case "text":
       return (
         <Input
-          placeholder={`Filter ${column.id}...`}
+          placeholder={`Search by ${column.id}...`}
           value={(column.getFilterValue() as string) ?? ""}
           onChange={(e) => column.setFilterValue(e.target.value)}
           className="h-8 w-[150px] lg:w-[250px]"

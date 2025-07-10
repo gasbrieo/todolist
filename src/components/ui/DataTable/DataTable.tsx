@@ -25,6 +25,7 @@ export const DataTable = <TData, TValue>({
   onPaginationChange,
   onSortingChange,
   onFilterChange,
+  toolbarActions,
 }: DataTableProps<TData, TValue>) => {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -89,7 +90,7 @@ export const DataTable = <TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar table={table} actions={toolbarActions} />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
